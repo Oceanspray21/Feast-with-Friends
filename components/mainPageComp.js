@@ -12,33 +12,31 @@ const DiningHallCard = (props) => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.headerRow}>
       <Text style={styles.title}>{name}</Text>
-      <View style={styles.friendsContainer}>
-        {friendsPresent.slice(0, 3).map((friend, index) => (
-          <Image
-            key={index}
-            source={{ uri: friend }}
-            style={styles.friendPic}
-          />
-        ))}
-        {/* <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} />
-        <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} />
-        <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} /> */}
-      </View>
-      <View style={styles.actionContainer}>
-        <TouchableOpacity onPress={onFriendInfoPress} style={styles.button}>
-          <Text>Friends</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={onFeastPress} style={styles.feastButton}>
+      <TouchableOpacity onPress={onFeastPress} style={styles.feastButton}>
           <Text style={styles.feastButtonText}>Feast</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity onPress={onMenuInfoPress} style={styles.button}>
-          <Text>Menu</Text>
-        </TouchableOpacity>
       </View>
-    </View>
+      <View style={styles.bottomRow}>
+        <View style={styles.friendsContainer}>
+          {friendsPresent.slice(0, 3).map((friend, index) => (
+            <Image
+              key={index}
+              source={{ uri: friend }}
+              style={styles.friendPic}
+            />
+          ))}
+          {/* <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} />
+          <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} />
+          <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} /> */}
+        </View>
+          <TouchableOpacity onPress={onMenuInfoPress} style={styles.arrowButton}>
+            <Text sytle={styles.feastButtonText}>Menu / Friends</Text>
+            <Text sytle={styles.arrow}> ▶ </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
   );
 };
 
@@ -48,13 +46,23 @@ const styles = StyleSheet.create({
     // borderRadius: 10,
     padding: 15,
     marginBottom: 10,
-    // These properties add a shadow effect to the card
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3, // This is for Android shadow
-    width: '100%',
+    elevation: 3,
+    width: "100%",
+  },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  bottomRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   title: {
     fontSize: 18,
@@ -62,30 +70,35 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   friendsContainer: {
-    flexDirection: "row", // This makes the images align horizontally
+    flexDirection: "row",
     marginBottom: 10,
   },
   friendPic: {
-    width: 40,
-    height: 40,
-    borderRadius: 20, // This makes the image circular
+    width: 30,
+    height: 30,
+    borderRadius: 20,
+    marginRight: 2,
+  },
+
+  arrowButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 5,
+    marginLeft: 10,
+  },
+  buttonText: {
     marginRight: 5,
   },
-  actionContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between", // This spreads out the buttons evenly
-    alignItems: "center",
-  },
-  button: {
-    padding: 5,
-    backgroundColor: "#e0e0e0",
-    borderRadius: 5,
+  arrow: {
+    fontSize: 16,
   },
   feastButton: {
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#1E90FF",
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 5,
+    marginLeft: 10,
+    alignItems: "flex-end"
   },
   feastButtonText: {
     color: "#fff",
