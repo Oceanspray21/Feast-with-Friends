@@ -28,8 +28,8 @@ const AppLayout = () => (
       drawerLabelStyle: {
         fontSize: 18,
       },
-      drawerActiveBackgroundColor: '#c0c0c0',
-      drawerActiveTintColor: '#000',
+      drawerActiveBackgroundColor: '#000000',
+      drawerActiveTintColor: '#ffffff',
     }}
   >
     <Drawer.Screen name="index" options={{title: "Dining Halls"}} component={Index} />

@@ -17,10 +17,13 @@ const DiningHallCard = (props) => {
         {friendsPresent.slice(0, 3).map((friend, index) => (
           <Image
             key={index}
-            source={{ uri: friend.profilePic }}
+            source={{ uri: friend }}
             style={styles.friendPic}
           />
         ))}
+        {/* <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} />
+        <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} />
+        <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} /> */}
       </View>
       <View style={styles.actionContainer}>
         <TouchableOpacity onPress={onFriendInfoPress} style={styles.button}>
@@ -42,7 +45,7 @@ const DiningHallCard = (props) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
-    borderRadius: 10,
+    // borderRadius: 10,
     padding: 15,
     marginBottom: 10,
     // These properties add a shadow effect to the card
