@@ -23,17 +23,21 @@ const DiningHallCard = (props) => {
         ))}
       </View>
       <View style={styles.actionContainer}>
-        <TouchableOpacity onPress={onFriendInfoPress} style={styles.button}>
-          <Text>Friends</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={onFeastPress} style={styles.feastButton}>
+      <TouchableOpacity onPress={onFeastPress} style={styles.feastButton}>
           <Text style={styles.feastButtonText}>Feast</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={onMenuInfoPress} style={styles.button}>
-          <Text>Menu</Text>
+        <TouchableOpacity onPress={onMenuInfoPress} style={styles.arrowButton}>
+          <Text sytle={styles.feastButtonText}>Menu</Text>
+          <Text sytle={styles.arrow}> ▶ </Text>
         </TouchableOpacity>
+
+        <TouchableOpacity onPress={onFriendInfoPress} style={styles.arrowButton} >
+          <Text style={styles.arrowButtonText}> Friends</Text>
+          <Text style={styles.arrow}> ▶ </Text>
+        </TouchableOpacity>
+
+
       </View>
     </View>
   );
@@ -45,13 +49,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 15,
     marginBottom: 10,
-    // These properties add a shadow effect to the card
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3, // This is for Android shadow
-    width: '100%',
+    elevation: 3,
+    width: "100%",
   },
   title: {
     fontSize: 18,
@@ -59,30 +62,36 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   friendsContainer: {
-    flexDirection: "row", // This makes the images align horizontally
+    flexDirection: "row",
     marginBottom: 10,
   },
   friendPic: {
     width: 40,
     height: 40,
-    borderRadius: 20, // This makes the image circular
+    borderRadius: 20,
     marginRight: 5,
   },
   actionContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between", // This spreads out the buttons evenly
-    alignItems: "center",
+    alignItems: "flex-end",
   },
-  button: {
+  arrowButton: {
+    flexDirection: "row",
+    alignItems: "center",
     padding: 5,
-    backgroundColor: "#e0e0e0",
-    borderRadius: 5,
+    marginLeft: 10,
+  },
+  buttonText: {
+    marginRight: 5,
+  },
+  arrow: {
+    fontSize: 16,
   },
   feastButton: {
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#1E90FF",
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 5,
+    marginLeft: 10,
   },
   feastButtonText: {
     color: "#fff",
