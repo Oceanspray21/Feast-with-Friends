@@ -12,37 +12,31 @@ const DiningHallCard = (props) => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.headerRow}>
       <Text style={styles.title}>{name}</Text>
-      <View style={styles.friendsContainer}>
-        {friendsPresent.slice(0, 3).map((friend, index) => (
-          <Image
-            key={index}
-            source={{ uri: friend }}
-            style={styles.friendPic}
-          />
-        ))}
-        {/* <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} />
-        <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} />
-        <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} /> */}
-      </View>
-      <View style={styles.actionContainer}>
       <TouchableOpacity onPress={onFeastPress} style={styles.feastButton}>
           <Text style={styles.feastButtonText}>Feast</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity onPress={onMenuInfoPress} style={styles.arrowButton}>
-          <Text sytle={styles.feastButtonText}>Menu</Text>
-          <Text sytle={styles.arrow}> ▶ </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={onFriendInfoPress} style={styles.arrowButton} >
-          <Text style={styles.arrowButtonText}> Friends</Text>
-          <Text style={styles.arrow}> ▶ </Text>
-        </TouchableOpacity>
-
-
       </View>
-    </View>
+      <View style={styles.bottomRow}>
+        <View style={styles.friendsContainer}>
+          {friendsPresent.slice(0, 3).map((friend, index) => (
+            <Image
+              key={index}
+              source={{ uri: friend }}
+              style={styles.friendPic}
+            />
+          ))}
+          {/* <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} />
+          <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} />
+          <Image source={{ uri: "https://picsum.photos/200/300" }} style={styles.friendPic} /> */}
+        </View>
+          <TouchableOpacity onPress={onMenuInfoPress} style={styles.arrowButton}>
+            <Text sytle={styles.feastButtonText}>Menu / Friends</Text>
+            <Text sytle={styles.arrow}> ▶ </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
   );
 };
 
@@ -59,6 +53,17 @@ const styles = StyleSheet.create({
     elevation: 3,
     width: "100%",
   },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  bottomRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
   title: {
     fontSize: 18,
     fontWeight: "bold",
@@ -69,14 +74,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   friendPic: {
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     borderRadius: 20,
-    marginRight: 5,
+    marginRight: 2,
   },
-  actionContainer: {
-    alignItems: "flex-end",
-  },
+
   arrowButton: {
     flexDirection: "row",
     alignItems: "center",
@@ -95,6 +98,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 5,
     marginLeft: 10,
+    alignItems: "flex-end"
   },
   feastButtonText: {
     color: "#fff",
