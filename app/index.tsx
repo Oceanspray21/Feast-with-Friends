@@ -12,7 +12,7 @@ import {
 
 const Index = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    // <SafeAreaView style={styles.container}>
       <ScrollView>
       <DiningHallCard
         name="Bruin Plate"
@@ -64,7 +64,7 @@ const Index = () => {
         friendsPresent={[]}
       />
       </ScrollView>
-    </SafeAreaView>
+    // </SafeAreaView>
   );
 };
 
