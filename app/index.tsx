@@ -40,20 +40,20 @@ const Index = () => {
         marginBottom: 10,
       }}>
         <Text style={{ textAlign: 'center', fontSize: 17 }}>
-          You've been eating at <Text style={{ fontWeight: 'bold' }}>De Neve</Text> for
+          Eating at <Text style={{ fontWeight: 'bold' }}>De Neve</Text> for
         </Text>
         <Text style={{ textAlign: 'center', fontSize: 20 }}>
-          32 min <Text style={{ fontSize: 15 }}>(18 min remaining)</Text> 
+          32 min <Text style={{ fontSize: 15 }}>(18 min left)</Text> 
         </Text>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
-          <TouchableOpacity onPress={() => handleTimeChange(-10)}>
+          <TouchableOpacity style={styles.minusButton} onPress={() => handleTimeChange(-10)}>
             <Text>-10 min</Text>
           </TouchableOpacity>
           <TouchableOpacity style={{ backgroundColor: '#d1d1d1', paddingHorizontal: 10, borderRadius: 5 }} onPress={() => handleCancel()}>
             <Text>Cancel</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleTimeChange(10)}>
+          <TouchableOpacity style={styles.plusButton} onPress={() => handleTimeChange(10)}>
             <Text>+10 min</Text>
           </TouchableOpacity>
         </View>
@@ -65,16 +65,19 @@ const Index = () => {
         marginBottom: 10,
       }}>
         <Text style={{ textAlign: 'center', fontSize: 20 }}>
-          12 swipes remaining
+          12 swipes left
         </Text>
-        <Text style={{ textAlign: 'center', fontSize: 15 }}>(you should have 5)</Text>
+        <Text style={{ textAlign: 'center', fontSize: 15 }}>(Should have 5)</Text>
 
-        <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 20 }}>
-          <TouchableOpacity style={{ backgroundColor: '#d1d1d1', paddingHorizontal: 10, marginHorizontal: 5, borderRadius: 5 }} onPress={() => handleCancel()}>
-            <Text>View Logs</Text>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
+          <TouchableOpacity style={styles.minusButton}onPress={() => handleTimeChange(-10)}>
+            <Text>-1 swipe</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{ backgroundColor: '#d1d1d1', paddingHorizontal: 10, marginHorizontal: 5, borderRadius: 5 }} onPress={() => handleCancel()}>
-            <Text>Edit</Text>
+          <TouchableOpacity style={{ backgroundColor: '#d1d1d1', paddingHorizontal: 10, borderRadius: 5 }} onPress={() => handleCancel()}>
+            <Text>Check swipes</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.plusButton} onPress={() => handleTimeChange(10)}>
+            <Text>+1 swipe</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -114,6 +117,16 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 42,
+  },
+  minusButton: {
+    backgroundColor: '#ff9999',
+    paddingHorizontal: 10,
+    borderRadius: 5,
+  },
+  plusButton: {
+    backgroundColor: '#99cc99',
+    paddingHorizontal: 10,
+    borderRadius: 5,
   },
 });
 
